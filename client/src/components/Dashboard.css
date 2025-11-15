@@ -40,3 +40,14 @@
   color: #7f8c8d;
   font-size: 0.9rem;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .stats-card {
+    padding: 1rem;
+  }
+}

@@ -110,3 +110,10 @@
 .badge-household { background-color: #9b59b6; color: white; }
 .badge-work { background-color: #34495e; color: white; }
 .badge-other { background-color: #95a5a6; color: white; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .list-form, .list-card {
+    padding: 1rem;
+  }
+}

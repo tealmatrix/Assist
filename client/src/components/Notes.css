@@ -100,3 +100,10 @@
   gap: 1rem;
   margin-top: 1rem;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .note-form, .note-card {
+    padding: 1rem;
+  }
+}

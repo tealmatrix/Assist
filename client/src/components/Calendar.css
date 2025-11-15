@@ -80,3 +80,10 @@
 .status-confirmed { color: #27ae60; }
 .status-cancelled { color: #e74c3c; }
 .status-completed { color: #95a5a6; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .calendar-container form {
+    grid-template-columns: 1fr;
+  }
+}

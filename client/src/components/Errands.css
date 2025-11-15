@@ -94,3 +94,15 @@
 .status-in-progress { color: #3498db; }
 .status-completed { color: #27ae60; }
 .status-cancelled { color: #e74c3c; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .errand-form, .errand-card {
+    padding: 1rem;
+  }
+  .errand-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
