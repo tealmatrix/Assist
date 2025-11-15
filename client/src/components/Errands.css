@@ -1,0 +1,96 @@
+.errands-container {
+  width: 100%;
+}
+
+.errand-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.errand-form input,
+.errand-form textarea,
+.errand-form select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.errand-form textarea {
+  resize: vertical;
+}
+
+.errands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.errand-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.errand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.errand-header h3 {
+  color: #2c3e50;
+  font-size: 1.25rem;
+}
+
+.errand-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.errand-description {
+  color: #555;
+  margin: 1rem 0;
+}
+
+.errand-meta {
+  margin: 1rem 0;
+  color: #555;
+}
+
+.errand-meta p {
+  margin: 0.5rem 0;
+}
+
+.errand-notes {
+  color: #555;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.errand-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.badge-research { background-color: #3498db; color: white; }
+.badge-shopping { background-color: #27ae60; color: white; }
+.badge-gift { background-color: #e74c3c; color: white; }
+.badge-booking { background-color: #9b59b6; color: white; }
+.badge-delivery { background-color: #f39c12; color: white; }
+.badge-other { background-color: #95a5a6; color: white; }
+
+.status-pending { color: #f39c12; }
+.status-in-progress { color: #3498db; }
+.status-completed { color: #27ae60; }
+.status-cancelled { color: #e74c3c; }

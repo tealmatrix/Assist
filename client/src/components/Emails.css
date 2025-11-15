@@ -1,0 +1,117 @@
+.emails-container {
+  width: 100%;
+}
+
+.email-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.email-form input,
+.email-form textarea,
+.email-form select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.email-form textarea {
+  resize: vertical;
+}
+
+.emails-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.email-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.email-card.unread {
+  border-left: 4px solid #3498db;
+  font-weight: 500;
+}
+
+.email-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.email-header h3 {
+  color: #2c3e50;
+  font-size: 1.25rem;
+}
+
+.email-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.email-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.email-body {
+  color: #555;
+  line-height: 1.6;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+}
+
+.email-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.btn-send {
+  padding: 0.5rem 1rem;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.btn-send:hover {
+  background-color: #229954;
+}
+
+.sent-badge {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.badge-unread { background-color: #3498db; color: white; }
+.badge-read { background-color: #95a5a6; color: white; }
+.badge-flagged { background-color: #f39c12; color: white; }
+.badge-responded { background-color: #27ae60; color: white; }
+.badge-archived { background-color: #7f8c8d; color: white; }
+
+.badge-priority-low { background-color: #bdc3c7; color: white; }
+.badge-priority-medium { background-color: #3498db; color: white; }
+.badge-priority-high { background-color: #e67e22; color: white; }
+.badge-priority-urgent { background-color: #e74c3c; color: white; }
