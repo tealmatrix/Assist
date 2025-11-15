@@ -2,7 +2,7 @@
   "name": "personal-assistant-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5001",
+  "proxy": "https://assist-api-a95v.onrender.com",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
