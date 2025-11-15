@@ -19,11 +19,11 @@ function Dashboard() {
   const fetchStats = async () => {
     try {
       const [appointments, lists, notes, emails, errands] = await Promise.all([
-        axios.get('${API_URL}/api/appointments'),
-        axios.get('${API_URL}/api/lists'),
-        axios.get('${API_URL}/api/notes'),
-        axios.get('${API_URL}/api/emails'),
-        axios.get('${API_URL}/api/errands'),
+        axios.get(`${API_URL}/api/appointments`),
+        axios.get(`${API_URL}/api/lists`),
+        axios.get(`${API_URL}/api/notes`),
+        axios.get(`${API_URL}/api/emails`),
+        axios.get(`${API_URL}/api/errands`),
       ]);
 
       setStats({

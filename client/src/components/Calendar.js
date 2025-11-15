@@ -24,7 +24,7 @@ function Calendar() {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('${API_URL}/api/appointments');
+      const response = await axios.get(`${API_URL}/api/appointments`);
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -37,7 +37,7 @@ function Calendar() {
       if (editingId) {
         await axios.put(`${API_URL}/api/appointments/${editingId}`, formData);
       } else {
-        await axios.post('${API_URL}/api/appointments', formData);
+        await axios.post(`${API_URL}/api/appointments`, formData);
       }
       fetchAppointments();
       resetForm();

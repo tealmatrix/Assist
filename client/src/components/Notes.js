@@ -20,7 +20,7 @@ function Notes() {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get('${API_URL}/api/notes');
+      const response = await axios.get(`${API_URL}/api/notes`);
       setNotes(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -33,7 +33,7 @@ function Notes() {
       if (editingId) {
         await axios.put(`${API_URL}/api/notes/${editingId}`, formData);
       } else {
-        await axios.post('${API_URL}/api/notes', formData);
+        await axios.post(`${API_URL}/api/notes`, formData);
       }
       fetchNotes();
       resetForm();

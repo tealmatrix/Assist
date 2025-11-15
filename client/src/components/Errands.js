@@ -23,7 +23,7 @@ function Errands() {
 
   const fetchErrands = async () => {
     try {
-      const response = await axios.get('${API_URL}/api/errands');
+      const response = await axios.get(`${API_URL}/api/errands`);
       setErrands(response.data);
     } catch (error) {
       console.error('Error fetching errands:', error);
@@ -36,7 +36,7 @@ function Errands() {
       if (editingId) {
         await axios.put(`${API_URL}/api/errands/${editingId}`, formData);
       } else {
-        await axios.post('${API_URL}/api/errands', formData);
+        await axios.post(`${API_URL}/api/errands`, formData);
       }
       fetchErrands();
       resetForm();

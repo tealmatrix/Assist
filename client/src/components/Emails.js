@@ -23,7 +23,7 @@ function Emails() {
 
   const fetchEmails = async () => {
     try {
-      const response = await axios.get('${API_URL}/api/emails');
+      const response = await axios.get(`${API_URL}/api/emails`);
       setEmails(response.data);
     } catch (error) {
       console.error('Error fetching emails:', error);
@@ -36,7 +36,7 @@ function Emails() {
       if (editingId) {
         await axios.put(`${API_URL}/api/emails/${editingId}`, formData);
       } else {
-        await axios.post('${API_URL}/api/emails', formData);
+        await axios.post(`${API_URL}/api/emails`, formData);
       }
       fetchEmails();
       resetForm();
