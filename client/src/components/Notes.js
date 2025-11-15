@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Notes.css';
+import API_URL from '../config';
 
 function Notes() {
   const [notes, setNotes] = useState([]);
@@ -19,7 +20,7 @@ function Notes() {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get('/api/notes');
+      const response = await axios.get('${API_URL}/api/notes');
       setNotes(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -30,9 +31,9 @@ function Notes() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/notes/${editingId}`, formData);
+        await axios.put(`${API_URL}/api/notes/${editingId}`, formData);
       } else {
-        await axios.post('/api/notes', formData);
+        await axios.post('${API_URL}/api/notes', formData);
       }
       fetchNotes();
       resetForm();
@@ -54,7 +55,7 @@ function Notes() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this note?')) {
       try {
-        await axios.delete(`/api/notes/${id}`);
+        await axios.delete(`${API_URL}/api/notes/${id}`);
         fetchNotes();
       } catch (error) {
         console.error('Error deleting note:', error);

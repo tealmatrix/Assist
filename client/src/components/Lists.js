@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Lists.css';
+import API_URL from '../config';
 
 function Lists() {
   const [lists, setLists] = useState([]);
@@ -19,7 +20,7 @@ function Lists() {
 
   const fetchLists = async () => {
     try {
-      const response = await axios.get('/api/lists');
+      const response = await axios.get(`${API_URL}/api/lists`);
       setLists(response.data);
     } catch (error) {
       console.error('Error fetching lists:', error);
@@ -30,9 +31,9 @@ function Lists() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/lists/${editingId}`, formData);
+        await axios.put(`${API_URL}/api/lists/${editingId}`, formData);
       } else {
-        await axios.post('/api/lists', formData);
+        await axios.post(`${API_URL}/api/lists`, formData);
       }
       fetchLists();
       resetForm();
@@ -54,7 +55,7 @@ function Lists() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this list?')) {
       try {
-        await axios.delete(`/api/lists/${id}`);
+        await axios.delete(`${API_URL}/api/lists/${id}`);
         fetchLists();
       } catch (error) {
         console.error('Error deleting list:', error);

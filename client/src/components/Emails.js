@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Emails.css';
+import API_URL from '../config';
 
 function Emails() {
   const [emails, setEmails] = useState([]);
@@ -22,7 +23,7 @@ function Emails() {
 
   const fetchEmails = async () => {
     try {
-      const response = await axios.get('/api/emails');
+      const response = await axios.get('${API_URL}/api/emails');
       setEmails(response.data);
     } catch (error) {
       console.error('Error fetching emails:', error);
@@ -33,9 +34,9 @@ function Emails() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/emails/${editingId}`, formData);
+        await axios.put(`${API_URL}/api/emails/${editingId}`, formData);
       } else {
-        await axios.post('/api/emails', formData);
+        await axios.post('${API_URL}/api/emails', formData);
       }
       fetchEmails();
       resetForm();
@@ -61,7 +62,7 @@ function Emails() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this email?')) {
       try {
-        await axios.delete(`/api/emails/${id}`);
+        await axios.delete(`${API_URL}/api/emails/${id}`);
         fetchEmails();
       } catch (error) {
         console.error('Error deleting email:', error);
@@ -72,7 +73,7 @@ function Emails() {
   const handleSend = async (id) => {
     if (window.confirm('Are you sure you want to send this email?')) {
       try {
-        const response = await axios.post(`/api/emails/send/${id}`);
+        const response = await axios.post(`${API_URL}/api/emails/send/${id}`);
         alert(response.data.message);
         fetchEmails();
       } catch (error) {

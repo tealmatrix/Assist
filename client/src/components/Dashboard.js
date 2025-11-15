@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
+import API_URL from '../config';
 
 function Dashboard() {
   const [stats, setStats] = useState({
@@ -18,11 +19,11 @@ function Dashboard() {
   const fetchStats = async () => {
     try {
       const [appointments, lists, notes, emails, errands] = await Promise.all([
-        axios.get('/api/appointments'),
-        axios.get('/api/lists'),
-        axios.get('/api/notes'),
-        axios.get('/api/emails'),
-        axios.get('/api/errands'),
+        axios.get('${API_URL}/api/appointments'),
+        axios.get('${API_URL}/api/lists'),
+        axios.get('${API_URL}/api/notes'),
+        axios.get('${API_URL}/api/emails'),
+        axios.get('${API_URL}/api/errands'),
       ]);
 
       setStats({

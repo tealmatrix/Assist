@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Errands.css';
+import API_URL from '../config';
 
 function Errands() {
   const [errands, setErrands] = useState([]);
@@ -22,7 +23,7 @@ function Errands() {
 
   const fetchErrands = async () => {
     try {
-      const response = await axios.get('/api/errands');
+      const response = await axios.get('${API_URL}/api/errands');
       setErrands(response.data);
     } catch (error) {
       console.error('Error fetching errands:', error);
@@ -33,9 +34,9 @@ function Errands() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/errands/${editingId}`, formData);
+        await axios.put(`${API_URL}/api/errands/${editingId}`, formData);
       } else {
-        await axios.post('/api/errands', formData);
+        await axios.post('${API_URL}/api/errands', formData);
       }
       fetchErrands();
       resetForm();
@@ -61,7 +62,7 @@ function Errands() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this errand?')) {
       try {
-        await axios.delete(`/api/errands/${id}`);
+        await axios.delete(`${API_URL}/api/errands/${id}`);
         fetchErrands();
       } catch (error) {
         console.error('Error deleting errand:', error);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Calendar.css';
+import API_URL from '../config';
 
 function Calendar() {
   const [appointments, setAppointments] = useState([]);
@@ -23,7 +24,7 @@ function Calendar() {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('/api/appointments');
+      const response = await axios.get('${API_URL}/api/appointments');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -34,9 +35,9 @@ function Calendar() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/appointments/${editingId}`, formData);
+        await axios.put(`${API_URL}/api/appointments/${editingId}`, formData);
       } else {
-        await axios.post('/api/appointments', formData);
+        await axios.post('${API_URL}/api/appointments', formData);
       }
       fetchAppointments();
       resetForm();
@@ -63,7 +64,7 @@ function Calendar() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this appointment?')) {
       try {
-        await axios.delete(`/api/appointments/${id}`);
+        await axios.delete(`${API_URL}/api/appointments/${id}`);
         fetchAppointments();
       } catch (error) {
         console.error('Error deleting appointment:', error);
